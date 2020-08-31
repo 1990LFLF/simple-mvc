@@ -14,13 +14,13 @@ class Router:
 
     def run(self):
         while self.running == True:
-            action = int(input('1 - Create a dog\n2 - All\n3 - Stop\n'))
+            action = int(input('1 - Create a dog\n2 - Display dogs\n3 - Stop\n'))
             self.router(action)
 
     def router(self, action):
         if action == 1:
             self.controller.create()
         elif action == 2:
-            self.controller.all()
+            self.controller.index()
         else:
             self.running = False

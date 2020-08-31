@@ -8,8 +8,11 @@ Created on Sun Aug 30 17:46:25 2020
 
 from dogs_controller import DogsController
 from router import Router
+from dog_repository import DogRepository
 
-ctr = DogsController()
+repo = DogRepository()
+
+ctr = DogsController(repo)
 
 router = Router(ctr)
 

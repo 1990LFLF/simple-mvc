@@ -7,13 +7,15 @@ Created on Sun Aug 30 17:28:09 2020
 """
 
 from dogs_view import DogsView
+from dog_repository import DogRepository
 from dog import Dog
 
 class DogsController:
 
-    def __init__(self):
+    def __init__(self, dog_repository):
         self.view = DogsView()
         self.lst = []
+        self.repo = dog_repository
 
     def create(self):
         name = self.view.ask_user_for_name()
@@ -24,5 +26,9 @@ class DogsController:
     def store(self, dog):
         self.lst.append(dog)
 
-    def all(self):
-        print(self.lst)
+    def index(self):
+        dogs = self.repo.all_dogs()
+        self.view.display(dogs)
+
+
+

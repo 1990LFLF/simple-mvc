@@ -5,6 +5,7 @@ from dog import Dog
 class DogRepository:
     def __init__(self):
         self.dogs = []
+        self.load_csv()
 
     def load_csv(self):
         f = '/home/luizf/anaconda3/python_learning/simple-mvc/dogs.csv'
@@ -14,9 +15,5 @@ class DogRepository:
                 dog = Dog(row[0], row[1])
                 self.dogs.append(dog)
 
-dog_repo = DogRepository()
-
-dog_repo.load_csv()
-
-for i in range(len(dog_repo.dogs)):
-    print("{} - {} | {}".format(i+1, dog_repo.dogs[i].name, dog_repo.dogs[i].color))
+    def all_dogs(self):
+        return self.dogs
